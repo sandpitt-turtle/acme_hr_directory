@@ -4,9 +4,11 @@ const morgan = require('morgan');
 const client = require('./db'); 
 
 const app = express();
+const apiRoutes = require('./api');
 
 app.use(morgan('dev'));
 app.use(express.json());
+app.use('/api', apiRoutes); 
 
 const init = async () => {
     try {
